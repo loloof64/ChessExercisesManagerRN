@@ -1,4 +1,4 @@
-package com.chessexercicesmanagerrn;
+package com.loloof64.chessexercisesmanager;
 
 import com.facebook.react.ReactActivity;
 
@@ -10,6 +10,6 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "ChessExercicesManagerRN";
+    return "ChessExercisesManager";
   }
 }
