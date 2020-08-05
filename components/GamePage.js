@@ -24,7 +24,7 @@ const boardSize = Math.floor(minimumWindowSize * 0.9);
 function GamePage() {
     return (
         <View style={styles.mainZone}>
-            <ChessPosition size={boardSize} />
+            <ChessPosition size={boardSize}/>
         </View>
     );
 }

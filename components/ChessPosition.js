@@ -25,14 +25,15 @@ const styles = StyleSheet.create({
 });
 
 const defaultSize = 100;
+const defaultPosition = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
 
 function ChessPosition(props) {
-  const {size} = props;
+  const {size, position} = props;
   const width = size || defaultSize;
   const height = size || defaultSize;
   const cellsSize = Math.floor(size / 9.0);
 
-  const [position, setPosition] = useState(new Chess());
+  const [positionLogic] = useState(new Chess(position || defaultPosition));
 
   const mainZoneDynamicStyle = {
     width,
@@ -79,7 +80,7 @@ function ChessPosition(props) {
 
         const file = col;
         const rank = 7-row;
-        const pieceFen = position.get(coordinatesToAlgebraic(file, rank));
+        const pieceFen = positionLogic.get(coordinatesToAlgebraic(file, rank));
         const pieceImage = getImageFromPieceFen(pieceFen);
 
         return (<View style={cellStyle} key={key}>
@@ -164,7 +165,7 @@ function ChessPosition(props) {
   }
 
   const generatePlayerTurn = () => {
-    const whiteTurn = position.turn() === 'w';
+    const whiteTurn = positionLogic.turn() === 'w';
     const turnStyle = {
       position: 'absolute',
       left: cellsSize * 8.55,
