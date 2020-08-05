@@ -1,6 +1,6 @@
 # Chess exercises manager
 
-See your favorite chess positions/exercises.
+See your favorite chess positions/exercises on your device.
 
 ## Thanks
 

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import {SvgXml} from 'react-native-svg';
 
 import {Chess} from 'chess.js';
@@ -91,9 +91,82 @@ function ChessPosition(props) {
     });
   };
 
+  const generateCoordinates = () => {
+    const coordinateStyle = {
+      color: '#f90',
+      fontSize: Math.floor(cellsSize * 0.5),
+      fontWeight: 'bold',
+    }
+
+    const filesCoordinates = [0,1,2,3,4,5,6,7].map(col => {
+      const file = col;
+      const coordinate = String.fromCharCode("a".charCodeAt(0) + file);
+
+      const topStyle = {
+        position: 'absolute',
+        left: cellsSize * (0.85 + col),
+        top: cellsSize * -0.1,
+      };
+
+      const bottomStyle = {
+        position: 'absolute',
+        left: cellsSize * (0.85 + col),
+        top: cellsSize * 8.4,
+      };
+
+      const topCoordinate = (
+        <Text key={"top_"+file} style={{...coordinateStyle, ...topStyle}}>
+          {coordinate}
+        </Text>
+      );
+
+      const bottomCoordinate = (
+        <Text key={"bottom_"+file} style={{...coordinateStyle, ...bottomStyle}}>
+          {coordinate}
+        </Text>
+      );
+
+      return [topCoordinate, bottomCoordinate];
+    });
+
+    const rankCoordinates = [0,1,2,3,4,5,6,7].map(row => {
+      const rank = 7-row;
+      const coordinate = String.fromCharCode("1".charCodeAt(0) + rank);
+
+      const leftStyle = {
+        position: 'absolute',
+        left: cellsSize * 0.1,
+        top: cellsSize * (0.7 + row)
+      };
+
+      const rightStyle = {
+        position: 'absolute',
+        left: cellsSize * 8.6,
+        top: cellsSize * (0.7 + row)
+      };
+
+      const leftCoordinate = (
+        <Text key={"left_"+rank} style={{...coordinateStyle, ...leftStyle}}>
+          {coordinate}
+        </Text>
+      );
+
+      const rightCoordinate = (
+        <Text key={"right_"+rank} style={{...coordinateStyle, ...rightStyle}}>
+          {coordinate}
+        </Text>
+      );
+
+      return [leftCoordinate, rightCoordinate];
+    });
+
+    return [filesCoordinates, rankCoordinates];
+  }
+
   return (
     <View style={{...styles.mainZone, ...mainZoneDynamicStyle}}>
       {generateCells()}
+      {generateCoordinates()}
     </View>
   );
 }
