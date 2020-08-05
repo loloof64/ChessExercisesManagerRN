@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface ChessExercisesManagerTests : XCTestCase
+@interface ChessPositionsArchiverTests : XCTestCase
 
 @end
 
-@implementation ChessExercisesManagerTests
+@implementation ChessPositionsArchiverTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL(^)(UIView *view))test
 {

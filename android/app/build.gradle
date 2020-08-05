@@ -129,7 +129,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.loloof64.chessexercisesmanager"
+        applicationId "com.loloof64.chesspositionsarchiver"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
