@@ -163,10 +163,28 @@ function ChessPosition(props) {
     return [filesCoordinates, rankCoordinates];
   }
 
+  const generatePlayerTurn = () => {
+    const whiteTurn = position.turn() === 'w';
+    const turnStyle = {
+      position: 'absolute',
+      left: cellsSize * 8.55,
+      top: cellsSize * 8.55,
+      width: cellsSize * 0.5 * 0.8,
+      height: cellsSize * 0.5 * 0.8,
+      borderRadius: cellsSize * 0.5 * 0.8,
+      backgroundColor: whiteTurn ? 'white' : 'black'
+    };
+    
+    return (
+      <View style={turnStyle} />
+    );
+  }
+
   return (
     <View style={{...styles.mainZone, ...mainZoneDynamicStyle}}>
       {generateCells()}
       {generateCoordinates()}
+      {generatePlayerTurn()}
     </View>
   );
 }
