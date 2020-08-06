@@ -6,6 +6,7 @@ module.exports = {
       {
         extensions: ['.svg'],
       },
+      'react-native-paper/babel'
     ],
   ],
 };

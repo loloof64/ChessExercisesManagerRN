@@ -13,7 +13,9 @@
     "chess.js": "^0.11.0",
     "react": "16.13.1",
     "react-native": "0.63.2",
-    "react-native-svg": "^12.1.0"
+    "react-native-paper": "^4.0.1",
+    "react-native-svg": "^12.1.0",
+    "react-native-vector-icons": "^7.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",

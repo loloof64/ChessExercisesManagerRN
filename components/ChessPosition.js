@@ -28,7 +28,7 @@ const defaultSize = 100;
 const defaultPosition = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
 
 function ChessPosition(props) {
-  const {size, position} = props;
+  const {size, position, reversed} = props;
   const width = size || defaultSize;
   const height = size || defaultSize;
   const cellsSize = Math.floor(size / 9.0);
@@ -78,8 +78,8 @@ function ChessPosition(props) {
           height: cellsSize,
         };
 
-        const file = col;
-        const rank = 7-row;
+        const file = reversed ? 7-col : col;
+        const rank = reversed ? row : 7-row;
         const pieceFen = positionLogic.get(coordinatesToAlgebraic(file, rank));
         const pieceImage = getImageFromPieceFen(pieceFen);
 
@@ -100,7 +100,7 @@ function ChessPosition(props) {
     }
 
     const filesCoordinates = [0,1,2,3,4,5,6,7].map(col => {
-      const file = col;
+      const file = reversed ? 7-col : col;
       const coordinate = String.fromCharCode("a".charCodeAt(0) + file);
 
       const topStyle = {
@@ -131,7 +131,7 @@ function ChessPosition(props) {
     });
 
     const rankCoordinates = [0,1,2,3,4,5,6,7].map(row => {
-      const rank = 7-row;
+      const rank = reversed ? row : 7-row;
       const coordinate = String.fromCharCode("1".charCodeAt(0) + rank);
 
       const leftStyle = {
