@@ -7,3 +7,5 @@ See your favorite chess positions/exercises on your device.
 Application icon has been downloaded from [Flaticon](https://www.flaticon.com/free-icon/chess_178148?term=chess&page=1&position=70), and designed by Flat icons.
 
 Chess vectors have been downloaded from [Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:SVG_chess_pieces).
+
+Based on the tutorial https://docs.microsoft.com/fr-fr/graph/tutorials/react-native for the Microsoft One Drive account handling.
