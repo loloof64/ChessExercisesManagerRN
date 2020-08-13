@@ -10,7 +10,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 const AuthStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-function tabScreenOptions({route}) {
+function tabScreenOptions({ route }) {
   return {
     tabBarIcon: ({ focused, color, size }) => {
       let iconName;
@@ -52,7 +52,14 @@ function AuthStackComponent({ navigation }) {
 function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator initialRouteName="LocalFiles" screenOptions={tabScreenOptions}>
+      <Tab.Navigator initialRouteName="LocalFiles" screenOptions={tabScreenOptions}
+        tabBarOptions={{
+          activeBackgroundColor: 'lightgreen',
+          inactiveBackgroundColor: 'darkred',
+          activeTintColor: 'tomato',
+          inactiveTintColor: 'blue'
+        }}
+      >
         <Tab.Screen
           name="LocalFiles"
           component={LocalFilesPage}
