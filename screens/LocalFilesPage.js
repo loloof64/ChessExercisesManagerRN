@@ -9,18 +9,4 @@ function LocalFilesComponent() {
   return <Text>Local files</Text>;
 }
 
-function LocalFilesPage() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="Home"
-        component={LocalFilesComponent}
-        options={{
-          title: 'Welcome',
-        }}
-      />
-    </Stack.Navigator>
-  );
-}
-
-export default LocalFilesPage;
+export default LocalFilesComponent;

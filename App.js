@@ -10,7 +10,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 const AuthStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-function tabScreenOptions({ route }) {
+const tabScreenOptions = ({ route }) => {
   return {
     tabBarIcon: ({ focused, color, size }) => {
       let iconName;
@@ -41,7 +41,8 @@ function AuthStackComponent({ navigation }) {
   return (
     <AuthStack.Navigator
       initialRouteName="AuthLoading"
-      options={{ headerShown: false }}>
+      headerMode='none'
+      >
       <AuthStack.Screen name="AuthLoading" component={OneDriveLoginPage} options={{ title: 'Logging to OneDrive' }} />
       <AuthStack.Screen name="SignIn" component={OneDriveSignInPage} options={{ title: 'Logging to OneDrive' }} />
       <AuthStack.Screen name="AuthMain" component={OneDriveFilesPage} options={{ title: 'OneDrive files' }} />
@@ -55,9 +56,9 @@ function App() {
       <Tab.Navigator initialRouteName="LocalFiles" screenOptions={tabScreenOptions}
         tabBarOptions={{
           activeBackgroundColor: 'lightgreen',
-          inactiveBackgroundColor: 'darkred',
+          inactiveBackgroundColor: 'tomato',
           activeTintColor: 'tomato',
-          inactiveTintColor: 'blue'
+          inactiveTintColor: 'lightgreen'
         }}
       >
         <Tab.Screen

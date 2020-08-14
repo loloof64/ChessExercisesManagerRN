@@ -2,7 +2,7 @@ import React from 'react';
 import {Text} from 'react-native';
 
 function OneDriveFilesComponent() {
-  return <Text>Hello files !</Text>;
+  return <Text>Cloud files</Text>;
 }
 
 export default OneDriveFilesComponent;
